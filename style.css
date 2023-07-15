@@ -1,0 +1,419 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #f7f5fa;
+    font-family: Montserrat, Open Sans, sans-serif;
+}
+@font-face{
+    font-family: "Montserrat";
+  src: url("fonts/Montserrat-Bold.ttf");
+}
+button:hover {
+    cursor: pointer
+}
+
+#app {
+    width: 722px;
+    height: 573px;
+    overflow: hidden;
+}
+
+.startPage__header {
+    position: relative;
+    min-height: 136px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url(assets/headerBackground.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff !important;
+}
+.startPage__header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(179deg, rgba(168, 129, 253, .53), #5900b1) !important;
+    background-image: linear-gradient(271deg, rgba(168, 129, 253, .53), #5900b1) !important;
+    background-color: transparent;
+}
+
+.startPage__contentHeaderTitle {
+    z-index: 1;
+    line-height: 26px;
+    font-size: 36px;
+    margin-bottom: 0;
+    font-weight: 800;
+}
+
+.startPage__contentHeaderSubtitle {
+    z-index: 1;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 36px;
+    font-weight: 400;
+}
+
+.startPage__content {
+    padding: 30px 45px 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.startPage__contentHeader {
+    font-size: 21px;
+    font-weight: 900;
+    line-height: 26px;
+    color: #8f4af9;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.startPage__ListItem {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    font-size: .88em;
+    line-height: 2;
+    color: #999;
+}
+
+.startPage__ListItemTitle {
+    width: 100%;
+    display: flex;
+}
+
+.startPage__ListItemImage {
+    height: 26px;
+    width: 26px;
+    margin-right: 14px;
+}
+
+.startPage__ListItemTitleText {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 800;
+    color: #333;
+    text-align: left;
+}
+
+.startPage__ListItemDescription {
+    text-align: left;
+    padding-left: 40px;
+}
+
+.startPage__buttonNext {
+    border: none;
+    display: block;
+    height: auto;
+    padding: 16px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: center;
+    letter-spacing: .5px;
+    color: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: #6039aa;
+    margin: 0 auto 32px auto;
+}
+
+.appWindow__contentWithShadow::before {
+    background: rgba(0, 0, 0, .6);
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.appWindow {
+    position: relative;
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+    background-color: #fff;
+    height: 528px;
+    display: flex;;
+}
+
+.appWindow__content,
+.appWindow__contentWithShadow {
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+    padding: 50px 100px;
+    margin: 45px auto 0;
+    height: 378px;
+    flex: 0 0 522px;
+}
+.appWindow__background {
+    position: absolute;
+    height: 479px;
+    margin: 44px 0 0 0;
+    width: inherit;
+    transition-property: margin-left;
+    transition-duration: 2s;
+}
+.appWindow__background > img {
+    height: inherit;
+}
+.appWindow__text {
+    position: relative;
+    align-self: center;
+    max-width: 460px;
+    font-size: 21px;
+    text-align: center;
+    color: #fff;
+    margin: auto 20px;
+    padding: 20px 0;
+}
+
+.appWindow__buttonStart {
+    text-align: center;
+    padding: 10px 0;
+    border: 2px solid hsla(0, 0%, 100%, .8);
+    border-radius: 50px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: .5px;
+    position: relative;
+    display: block;
+    width: 218px;
+    margin: 50px auto 0 auto;
+    border-color: transparent;
+    background-color: hsla(0, 0%, 100%, .8);
+    color: #333;
+}
+.counter {
+    left: calc( 50% - 40px );
+    z-index: 1;
+    top: calc( 50% - 40px );
+    padding: 10px;
+    border-radius: 100px;
+    background: green;
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    background-color: #c3b6b6a1;
+    color: #fff;
+    align-items: center;
+}
+
+.appWindow__stage {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    z-index: 1;
+}
+.stageToLeft {
+    animation: stageToLeft 1.5s forwards ;
+}
+.appWindow__stage > * {
+    position: absolute;
+    right: 0;
+}
+
+@keyframes stageToLeft {       
+    from { right: -400px }            
+    to { right: 230px } 
+  }
+
+.appWindow__rack {
+    top: 126px;
+    display: grid;
+    width: 200px;
+    height: auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+.appWindow__rackShelfImage {
+    height: 30px;
+    width: 30px;
+}
+.appWindow__rackShelfItem {
+    width: 30px;
+    height: 30px;
+}
+.appWindow__rackShelfItem > img {
+    height: 30px;
+    width: 30px;
+}
+.appWindow__rememberButton {
+    bottom: 50px;
+    background-color: #d9d936;
+    right: 40px;
+    color: #1f1f9b;
+    font-weight: 600;
+    padding: 10px 30px;
+    font-size: 20px;
+    border-radius: 50px;
+    border: none;
+}
+.appWindow__LeftCatPlace {
+    top: 235px;
+    right: 270px;
+}
+.appWindow__RightCatPlace {
+        top: 235px;
+    right: -125px;
+}
+.appWindow__CenterCatPlace {
+        top: 60px;
+    right: 80px;
+}
+
+
+.appWindow__selectionItems {
+        display: flex;
+    gap: 20px;
+    bottom: 35px;
+    width: 100%;
+    right: -230px;
+    justify-content: center;
+}
+.appWindow__selectionItem {
+        height: 50px;
+    width: 50px;
+        transition-property: transform;
+    transition-duration: 0.5s;
+}
+.appWindow__selectionItem:hover { 
+    cursor: pointer;
+}
+.rightIcon {
+    height: 80px;
+    width: 100px;
+    right: 50px;
+    top: 190px;
+    background-image: url(assets/rightIcon.png);
+    background-size: cover;
+}
+.wrongIcon {
+    background-image: url(assets/wrongIcon.png);
+        height: 100px;
+    width: 100px;
+    right: 50px;
+    top: 190px;
+     background-size: cover;
+}
+@keyframes levelPassed {
+    0% { transform: scale(1)}
+    25% {transform: scale(1.5)}
+    50% { transform: scale(1)}
+    100% {transform: scale(1.5)}
+}
+.rightIcon.lastItem {
+    animation: levelPassed;
+    animation-duration: 0.8s;
+}
+@keyframes levelFailed {
+    0% { transform: rotate(0deg)}
+    25% {transform: rotate(10deg)}
+    50% { transform: rotate(-10deg)}
+    100% {transform: rotate(10deg)}
+}
+.wrongIcon {
+    animation: levelFailed;
+    animation-duration: 0.8s;
+}
+
+
+.appWindow__statusBar {
+    color: #2a7193;
+    font-weight: 600;
+    font-size: 13px;
+    display: flex;
+    gap: 2px;
+    right: -229px;
+    top: 44px;
+}
+.appWindow__statusBarItem{
+    padding: 2px 5px;
+    background-color: #7abff5;
+}
+.appWindow__statusBarItem {
+    display: flex;
+    gap:5px;
+    align-items: center;
+}
+.appWindow__failureIcon,.appWindow__successIcon {
+    height: 15px;
+    width: 15px;
+}
+.appWindow__score {
+    width: 40px;
+    justify-content: end;
+}
+.appWindow__statusBarTimer {
+    width: 35px
+}
+
+
+
+
+
+
+.app__header {
+    background-color: #6bb0e7;
+    background-image: url(assets/headerBackground.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    color: #fff!important;
+    font-size: 2.3em;
+    font-weight: 300;
+    line-height: 1;
+    min-height: 120px;
+    padding: 24px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.app__header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.6);
+}
+.app__headerText {
+    z-index: 1
+}
+.app__resultsContent {
+    padding: 30px 45px 34px;
+}
+.app__resultsTableRow {
+    margin-bottom: 10px
+}
+.app__resultsTableCell.Title {
+        font-weight: 500;
+    color: #3f3f3f;    
+}
+.app__resultsTableCell{
+    font-weight: 700;
+        width: 215px;
+    height: 28px;
+    font-size: inherit;
+    font-weight: 500;
+}
