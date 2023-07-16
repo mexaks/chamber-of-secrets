@@ -1,0 +1,100 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #f7f5fa;
+    font-family: Montserrat, Open Sans, sans-serif;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("../fonts/Montserrat-Bold.ttf");
+}
+
+button:hover {
+    cursor: pointer
+}
+
+#app {
+    width: 722px;
+    height: 573px;
+    overflow: hidden;
+}
+
+.appWindow__contentWithShadow::before {
+    background: rgba(0, 0, 0, .6);
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.appWindow {
+    position: relative;
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+    background-color: #fff;
+    height: 528px;
+    display: flex;
+}
+
+.appWindow__content,
+.appWindow__contentWithShadow {
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+    padding: 50px 100px;
+    margin: 45px auto 0;
+    height: 378px;
+    flex: 0 0 522px;
+}
+
+.appWindow__background {
+    position: absolute;
+    height: 479px;
+    margin: 44px 0 0 0;
+    width: inherit;
+    transition-property: margin-left;
+    transition-duration: 2s;
+}
+
+.appWindow__background > img {
+    height: inherit;
+}
+
+.appWindow__text {
+    position: relative;
+    align-self: center;
+    max-width: 460px;
+    font-size: 21px;
+    text-align: center;
+    color: #fff;
+    margin: auto 20px;
+    padding: 20px 0;
+}
+
+.appWindow__buttonStart {
+    text-align: center;
+    padding: 10px 0;
+    border: 2px solid hsla(0, 0%, 100%, .8);
+    border-radius: 50px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: .5px;
+    position: relative;
+    display: block;
+    width: 218px;
+    margin: 50px auto 0 auto;
+    border-color: transparent;
+    background-color: hsla(0, 0%, 100%, .8);
+    color: #333;
+}

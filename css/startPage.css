@@ -1,0 +1,105 @@
+.startPage__header {
+    position: relative;
+    min-height: 136px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../assets/headerBackground.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff !important;
+}
+
+.startPage__header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(179deg, rgba(168, 129, 253, .53), #5900b1) !important;
+    background-image: linear-gradient(271deg, rgba(168, 129, 253, .53), #5900b1) !important;
+    background-color: transparent;
+}
+
+.startPage__contentHeaderTitle {
+    z-index: 1;
+    line-height: 26px;
+    font-size: 36px;
+    margin-bottom: 0;
+    font-weight: 800;
+}
+
+.startPage__contentHeaderSubtitle {
+    z-index: 1;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 36px;
+    font-weight: 400;
+}
+
+.startPage__content {
+    padding: 30px 45px 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.startPage__contentHeader {
+    font-size: 21px;
+    font-weight: 900;
+    line-height: 26px;
+    color: #8f4af9;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.startPage__ListItem {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    font-size: .88em;
+    line-height: 2;
+    color: #999;
+}
+
+.startPage__ListItemTitle {
+    width: 100%;
+    display: flex;
+}
+
+.startPage__ListItemImage {
+    height: 26px;
+    width: 26px;
+    margin-right: 14px;
+}
+
+.startPage__ListItemTitleText {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 800;
+    color: #333;
+    text-align: left;
+}
+
+.startPage__ListItemDescription {
+    text-align: left;
+    padding-left: 40px;
+}
+
+.startPage__buttonNext {
+    border: none;
+    display: block;
+    height: auto;
+    padding: 16px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: center;
+    letter-spacing: .5px;
+    color: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: #6039aa;
+    margin: 0 auto 32px auto;
+}

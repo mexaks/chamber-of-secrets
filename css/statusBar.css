@@ -1,0 +1,29 @@
+.appWindow__statusBar {
+    color: #2a7193;
+    font-weight: 600;
+    font-size: 13px;
+    display: flex;
+    gap: 2px;
+    right: -229px;
+    top: 44px;
+}
+
+.appWindow__statusBarItem {
+    padding: 2px 5px;
+    background-color: #7abff5;
+}
+
+.appWindow__statusBarItem {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.appWindow__score {
+    width: 40px;
+    justify-content: end;
+}
+
+.appWindow__statusBarTimer {
+    width: 35px
+}

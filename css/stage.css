@@ -1,0 +1,179 @@
+.counter {
+    left: calc(50% - 40px);
+    z-index: 1;
+    top: calc(50% - 40px);
+    padding: 10px;
+    border-radius: 100px;
+    background: green;
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    background-color: #c3b6b6a1;
+    color: #fff;
+    align-items: center;
+}
+
+.appWindow__stage {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    z-index: 1;
+}
+
+.stageToLeft {
+    animation: stageToLeft 2s forwards;
+}
+
+.appWindow__stage > * {
+    position: absolute;
+    right: 0;
+}
+
+@keyframes stageToLeft {
+    from {
+        right: -400px
+    }
+
+    to {
+        right: 230px
+    }
+}
+
+.appWindow__rack {
+    top: 126px;
+    display: grid;
+    width: 200px;
+    height: auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.appWindow__rackShelfImage {
+    height: 30px;
+    width: 30px;
+}
+
+.appWindow__rackShelfItem {
+    width: 30px;
+    height: 30px;
+}
+
+.appWindow__rememberButton {
+    bottom: 50px;
+    background-color: #d9d936;
+    right: 40px;
+    color: #1f1f9b;
+    font-weight: 600;
+    padding: 10px 30px;
+    font-size: 20px;
+    border-radius: 50px;
+    border: none;
+}
+
+.appWindow__LeftCatPlace {
+    top: 235px;
+    right: 270px;
+}
+
+.appWindow__RightCatPlace {
+    top: 235px;
+    right: -125px;
+}
+
+.appWindow__CenterCatPlace {
+    top: 60px;
+    right: 80px;
+}
+
+.appWindow__selectionItems {
+    display: flex;
+    gap: 20px;
+    bottom: 35px;
+    width: 100%;
+    right: -230px;
+    justify-content: center;
+}
+
+.appWindow__selectionItem {
+    height: 50px;
+    width: 50px;
+    transition-property: transform;
+    transition-duration: 0.25s;
+}
+
+.appWindow__selectionItem:hover {
+    cursor: pointer;
+}
+
+.rightIcon {
+    height: 80px;
+    width: 100px;
+    right: 50px;
+    top: 190px;
+    background-image: url(../assets/rightIcon.png);
+    background-size: cover;
+}
+
+.wrongIcon {
+    background-image: url(../assets/wrongIcon.png);
+    height: 100px;
+    width: 100px;
+    right: 50px;
+    top: 190px;
+    background-size: cover;
+}
+
+@keyframes levelPassed {
+    0% {
+        transform: scale(1)
+    }
+
+    25% {
+        transform: scale(1.5)
+    }
+
+    50% {
+        transform: scale(1)
+    }
+
+    100% {
+        transform: scale(1.5)
+    }
+}
+
+.rightIcon.lastItem {
+    animation: levelPassed;
+    animation-duration: 0.8s;
+}
+
+@keyframes levelFailed {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    25% {
+        transform: rotate(10deg)
+    }
+
+    50% {
+        transform: rotate(-10deg)
+    }
+
+    100% {
+        transform: rotate(10deg)
+    }
+}
+
+.wrongIcon {
+    animation: levelFailed;
+    animation-duration: 0.8s;
+}
+
+.appWindow__failureIcon,
+.appWindow__successIcon {
+    height: 15px;
+    width: 15px;
+}

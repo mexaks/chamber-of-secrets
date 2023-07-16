@@ -1,0 +1,52 @@
+.app__header {
+    background-color: #6bb0e7;
+    background-image: url(../assets/headerBackground.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    color: #fff !important;
+    font-size: 2.3em;
+    font-weight: 300;
+    line-height: 1;
+    min-height: 120px;
+    padding: 24px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app__header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .6);
+}
+
+.app__headerText {
+    z-index: 1
+}
+
+.app__resultsContent {
+    padding: 30px 45px 34px
+}
+
+.app__resultsTableRow {
+    margin-bottom: 10px
+}
+
+.app__resultsTableCell.Title {
+    font-weight: 500;
+    color: #3f3f3f;
+}
+
+.app__resultsTableCell {
+    font-weight: 700;
+    width: 215px;
+    height: 28px;
+    font-size: inherit;
+    font-weight: 500;
+}

@@ -43,20 +43,6 @@ let gameInfo = {
     ]
 }
 
-let timer = setInterval(() => {
-    if (gameInfo.isTimerPaused == false) {
-        if (gameInfo.secondsLeft > 0) {
-         gameInfo.secondsLeft--
-            let minutes = Math.floor(gameInfo.secondsLeft / 60)
-    let seconds = gameInfo.secondsLeft % 60
-    $('.appWindow__statusBarTimer').html(`0${minutes}:${seconds}`)
-        }
-        else {
-            gameInfo.isTimeOver = true
-        }
-    }
-}, 1000)
-
 function loadAppWindow() {
     $('.startPage').remove()
     $('#app').append($('<div>', {
@@ -88,10 +74,10 @@ function startGame() {
     }))
     $('#app').append('<div class="counter">3</div>')
 
-    let i = 2;
+    let counterValue = 2;
     let countInterval = setInterval(() => {
-        $('.counter').html(i);
-        i--;
+        $('.counter').html(counterValue);
+        counterValue--;
     }, 1000)
     setTimeout(() => {
         clearInterval(countInterval)
@@ -120,9 +106,20 @@ function startGame() {
         $('.appWindow__stage').addClass('stageToLeft')
     }, 2800);
     setTimeout(() => {
-    gameInfo.isTimerPaused = false    
-    createStatusBar()
-    }, 4300)
+        gameInfo.isTimerPaused = false
+        setInterval(() => {
+            if (!gameInfo.isTimerPaused) {
+                if (gameInfo.secondsLeft > 0) {
+                    gameInfo.secondsLeft--
+                    let seconds = gameInfo.secondsLeft % 60
+                    $('.appWindow__statusBarTimer').html(`00:${seconds}`)
+                } else {
+                    gameInfo.isTimeOver = true
+                }
+            }
+        }, 1000)
+        createStatusBar()
+    }, 4800)
 }
 
 function fillRack() {
@@ -160,31 +157,6 @@ function fillRack() {
             src: shelfBooksUrls[bookIndex]
         }))
     }
-
-
-
-
-
-    //    for (let shelf = 1; shelf < 7; shelf++) {
-    //        $('.appWindow__rack').append($('<div>', {
-    //            class: 'appWindow__rackShelf',
-    //        }).data('shelfNumber', shelf))
-    //        for (let item = 1; item < 6; item++) {
-    //            if (shelf != 3) {
-    //                let book = Math.floor(
-    //                    Math.random() * (shelfBooksUrls.length - 1) + 0
-    //                )
-    //                $('.appWindow__rackShelf').last().append($('<img>', {
-    //                    src: shelfBooksUrls[book],
-    //                    class: 'appWindow__rackShelfImage'
-    //                }))
-    //            } else {
-    //                $('.appWindow__rackShelf').last().append($('<block>', {
-    //                    class: 'appWindow__rackShelfItem'
-    //                }))
-    //            }
-    //        }
-    //    }
 }
 
 function setItems() {
@@ -230,30 +202,26 @@ function createStatusBar() {
     $('.appWindow__statusBar').append($('<div>', {
         class: 'appWindow__statusBarBlock appWindow__statusBarItem'
     }))
-
+    
     $('.appWindow__statusBarBlock').append($('<div>', {
         class: 'appWindow__statusBarLevel appWindow__statusBarItem',
     }))
     $('.appWindow__statusBarBlock').append($('<div>', {
         class: 'appWindow__statusBarSuccesses appWindow__statusBarItem',
     }))
-
-
     $('.appWindow__statusBar').append($('<div>', {
-        class: 'appWindow__failures appWindow__statusBarItem'
+        class: 'appWindow__statusBarFailures appWindow__statusBarItem'
     }))
-
     for (let i = 0; i < 3; i++) {
         $('.appWindow__statusBarSuccesses').append($('<img>', {
             src: 'assets/success.png',
             class: 'appWindow__successIcon'
         }))
-        $('.appWindow__failures').append($('<img>', {
+        $('.appWindow__statusBarFailures').append($('<img>', {
             src: 'assets/failure.png',
             class: 'appWindow__failureIcon'
         }))
     }
-
     $('.appWindow__statusBar').append($('<div>', {
         class: 'appWindow__score appWindow__statusBarItem',
     }))
@@ -273,7 +241,7 @@ function setCat() {
     }))
 }
 
-function changeDay() {
+function offLight() {
     $('.appWindow__rackShelfItem').css('visibility', 'hidden')
     $('.appWindow__rememberButton').remove()
     $('.appWindow__content').css('backgroundImage', 'url(assets/nightBackground.png)')
@@ -297,7 +265,7 @@ function changeDay() {
 function scatterItems() {
     $('.appWindow__selectionItems').remove()
     gameInfo.selectionItems = []
-    changeDay()
+    offLight()
     setTimeout(() => {
         let items = 0
         $('.appWindow__stage').append($('<div>', {
@@ -320,7 +288,8 @@ function scatterItems() {
             let item = gameInfo.itemsUrls[selectionItemIndex]
             if (
                 $.inArray(item, gameInfo.rightItems) < 0 &&
-                $.inArray(item, gameInfo.selectionItems) < 0) {
+                $.inArray(item, gameInfo.selectionItems) < 0
+            ) {
                 gameInfo.selectionItems.push(item)
             }
         }
@@ -352,7 +321,7 @@ function changeLevel() {
     $('.appWindow__selectionItems').remove()
     $('.appWindow__rackShelfItem').removeClass('hiddenItem')
     setItems()
-    changeDay()
+    offLight()
     setTimeout(() => {
         createRememberButton()
         $('.appWindow__rackShelfItem').css('visibility', 'visible')
@@ -393,7 +362,7 @@ function checkForMatch() {
             $('.rightIcon').addClass('lastItem')
             animationTime = 800
             setTimeout(changeLevel, animationTime)
-            gameInfo.score += gameInfo.winPoints 
+            gameInfo.score += gameInfo.winPoints
         } else {
             gameInfo.score += gameInfo.rightAnswerPoints
         }
@@ -489,6 +458,7 @@ function endingGame() {
             </tr>
         </tbody>`)
 }
+
 $('.startPage__buttonNext').click(loadAppWindow)
 $(document).on('click', '.appWindow__buttonStart', startGame)
 $(document).on('click', '.appWindow__rememberButton', scatterItems)
